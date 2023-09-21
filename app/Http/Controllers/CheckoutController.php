@@ -17,26 +17,28 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        $stripe = new \Stripe\StripeClient('sk_test_51MJyvCEAgQFECaeFdof95XMEGHxLe8Bdy1nnl1ihb4aeM5qkg67OD9D2qxAllek8ZtxoENHtJvXq5QYfZH9AkGFu000g1c6YZe');
+        // $stripe = new \Stripe\StripeClient('sk_test_51MJyvCEAgQFECaeFdof95XMEGHxLe8Bdy1nnl1ihb4aeM5qkg67OD9D2qxAllek8ZtxoENHtJvXq5QYfZH9AkGFu000g1c6YZe');
 
-        $order = Order::where('user_id', '=', auth()->user()->id)
-            ->where('payment_intent', null)
-            ->first();
+        // $order = Order::where('user_id', '=', auth()->user()->id)
+        //     ->where('payment_intent', null)
+        //     ->first();
 
-        // if (!is_null($order)) {
-        //     return redirect()->route('checkout_success.index');
-        // }
+        // // if (!is_null($order)) {
+        // //     return redirect()->route('checkout_success.index');
+        // // }
 
-        $intent = $stripe->paymentIntents->create([
-            'amount' => (int) $order->total,
-            'currency' => 'usd',
-            'payment_method_types' => ['card'],
-        ]);
+        // $intent = $stripe->paymentIntents->create([
+        //     'amount' => (int) $order->total,
+        //     'currency' => 'usd',
+        //     'payment_method_types' => ['card'],
+        // ]);
 
-        return Inertia::render('Checkout', [
-            'intent' => $intent,
-            'order' => $order
-        ]);
+        // return Inertia::render('Checkout', [
+        //     'intent' => $intent,
+        //     'order' => $order
+        // ]);
+
+        return Inertia::render('Checkout');
     }
 
     /**
