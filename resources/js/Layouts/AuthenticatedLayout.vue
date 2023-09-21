@@ -11,15 +11,24 @@ import CloseIcon from 'vue-material-design-icons/Close.vue';
 import ChevronRightIcon from 'vue-material-design-icons/ChevronRight.vue';
 
 let showMenu = ref(false);
+let accountAndList = ref(false)
+
+const accountAndListFunc = (bool) => {
+    setTimeout(() => {
+        accountAndList.value = bool
+    }, 150)
+}
 </script>
 
 <template>
     <div class="min-w-[1150px] bg-gray-100 h-full">
+        
+        <div v-if="accountAndList" class="top-0 z-20 fixed w-full h-full bg-black bg-opacity-70"></div>
+
         <div class="flex items-center bg-gray-900 h-[60px] py-2 fixed z-50 min-w-[1150px] w-full">
             <div class="flex">
                 <Link class="text-white h-[50px] p-2 pt-3 border-[1px] border-gray-900 rounded-sm hover:border-[1px] hover:border-gray-100 cursor-pointer">
-                    <!--<img width="100" src="/images/logo/AMAZON_LOGO.png">-->
-                    AMAZON
+                    <img width="100" src="/images/logo/AMAZON_LOGO.png">
                 </Link>
             </div>
 
@@ -61,7 +70,7 @@ let showMenu = ref(false);
                     </div>
                 </div>
 
-                <div class="h-[50px] p-2 border-[1px] border-gray-900 rounded-sm hover:border-[1px] hover:border-gray-100 cursor-pointer">
+                <div @mouseenter="accountAndListFunc(true)" @mouseleave="accountAndListFunc(false)" class="h-[50px] p-2 border-[1px] border-gray-900 rounded-sm hover:border-[1px] hover:border-gray-100 cursor-pointer">
                     <div class="flex items-center justify-center">
                         <div>
                             <div class="text-[12px] text-white font-extrabold"> 
@@ -71,6 +80,44 @@ let showMenu = ref(false);
                             <div class="flex items-center">
                                 <div class="text-[15px] text-white -mt-1.5 font-extrabold">Account & List</div>
                                 <MenuDownIcon fillColor="#c2c2c2" :size="20" class="-mr-4 -mt-1 pr-1"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div v-if="accountAndList" class="bg-white absolute z-50 top-[56px] -ml-[230px] w-[480px] rounded-sm px-6">
+                        <div>
+                            <div class="flex items-center justify-between py-2.5 border-b">
+                                <div class="text-smp-2">Who's shopping? Select a profile.</div>
+                                <div class="flex items-center text-sm font-bold text-teal-600 hover:text-red-600 hover:underline">
+                                    Manage profile
+                                    <ChevronRightIcon :size="20" fillColor="#808080" />
+                                </div>
+                            </div>
+
+                            <div class="flex">
+                                <div class="w-1/2 border-r">
+                                    <div class="pb-3">
+                                        <div class="font-extrabold pt-3">Your List</div>
+                                        <div class="text-sm hover:text-red-600 hover:underline pt-3">Create a list</div>
+                                    </div>
+                                </div>
+                                <div class="w-1/2 ml-5">
+                                    <div class="pb-3">
+                                        <div class="font-extrabold pt-3">Your Account</div>
+                                        <Link
+                                            class="text-sm block hover:text-red-600 hover:underline pt-3"
+                                        >
+                                            Account
+                                        </Link>
+                                        <Link
+                                            method="post"
+                                            as="button"
+                                            class="text-sm block hover:text-red-600 hover:underline pt-3"
+                                        >
+                                            Sign Out
+                                        </Link>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -13,8 +13,7 @@ import { Carousel, Navigation, Slide } from 'vue3-carousel'
         <Carousel :items-to-show="1" :wrap-around="true">
             <Slide v-for="slide in 6" :key="slide">
                 <div class="carousel__item">
-                    <!-- <img id="slider" :src="`images/carousel/slide${slide}.jpg`" alt=""> -->
-                    <img src="https://via.placeholder.com/3000x1200.png/004466?text=Testing" alt="">
+                    <img id="slider" :src="`images/carousel/slide${slide}.jpg`" alt="">
                 </div>
             </Slide>
 
