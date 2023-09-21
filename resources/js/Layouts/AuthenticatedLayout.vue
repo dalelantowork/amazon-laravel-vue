@@ -10,6 +10,9 @@ import AccountCircleIcon from 'vue-material-design-icons/AccountCircle.vue';
 import CloseIcon from 'vue-material-design-icons/Close.vue';
 import ChevronRightIcon from 'vue-material-design-icons/ChevronRight.vue';
 
+import { useCartStore } from '@/store/cart';
+const cartStore = useCartStore()
+
 let showMenu = ref(false);
 let accountAndList = ref(false)
 
@@ -184,7 +187,7 @@ const accountAndListFunc = (bool) => {
 
                 <Link class="relative h-[50px] p-2 border-[1px] border-gray-900 rounded-sm hover:border-[1px] hover:border-gray-100 cursor-pointer">
                     <span class="absolute text-center right-[21px] w-[14px] -top-0 rounded-full text-[20px]">
-                        <div class="text-orange-400 font-extrabold bg-gray-900 h-[16px]">10</div>
+                        <div class="text-orange-400 font-extrabold bg-gray-900 h-[16px]">{{ cartStore.cart.length }}</div>
                     </span>
                     <div class="flex items-center justify-center">
                         <CartMinusIcon fillColor="#FCFCFC" :size="40" class="-mt-0.5"/>

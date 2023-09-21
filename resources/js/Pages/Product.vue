@@ -4,9 +4,24 @@ import { Head, Link } from '@inertiajs/vue3';
 import { toRefs, computed } from 'vue'
 import MapMarkerOutlineIcon from 'vue-material-design-icons/MapMarkerOutline.vue'
 
+import { useCartStore } from '@/store/cart'
+import { storeToRefs } from 'pinia';
+
 const props = defineProps({product: Object});
 const { product } = toRefs(props)
 
+const cartStore = useCartStore()
+const { cart } = storeToRefs(cartStore)
+
+const addToCart = (product) => {
+    cart.value.push(product)
+}
+
+const isAlreadyInCart = computed(() => {
+    let res = cart.value.find(c => c.id === product.value.id)
+    if (res) return true
+    return false
+})
 </script>
 
 <template>
@@ -52,7 +67,7 @@ const { product } = toRefs(props)
                                 @click="addToCart(product)"
                                 class="bg-yellow-400 px-2 font-bold text-sm rounded-lg border shadow-sm cursor-pointer"
                             >
-                                <span v-if="isAlreadyInCart">Iten added</span>
+                                <span v-if="isAlreadyInCart">Item added</span>
                                 <span v-else>Add to cart</span>
                             </button>
                         </div>
