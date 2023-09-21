@@ -178,7 +178,7 @@ const accountAndListFunc = (bool) => {
                 </div>
                 <div class="flex h-[30px] border-[1px] border-[#232f3e] rounded-sm hover:border-[1px] hover:border-gray-100 cursor-pointer">
                     <div class="flex items-center justify-between px-2">
-                        <div class="text-[14px] text-white font-extrabold">John's Amazon.com</div>
+                        <div class="text-[14px] text-white font-extrabold">Dale's Amazon.com</div>
                     </div>
                 </div>
 
@@ -186,7 +186,7 @@ const accountAndListFunc = (bool) => {
             <div class="flex">
                 <div class="flex h-[30px] border-[1px] border-[#232f3e] rounded-sm hover:border-[1px] hover:border-gray-100 cursor-pointer">
                     <div class="flex items-center justify-between px-2">
-                        <div class="text-[14px] text-white font-extrabold">Holiday Fasion Deals</div>
+                        <div class="text-[14px] text-white font-extrabold">Holiday Fashion Deals</div>
                     </div>
                 </div>
             </div>
@@ -201,18 +201,18 @@ const accountAndListFunc = (bool) => {
             <div class="max-w-[1500px] mx-auto">
                 <div class="text-[23px] pt-4 font-extrabold">Recommended based on your shopping trends</div>
                 <div class="flex justify-center items-stretch">
-                    <div>
+                    <div v-for="product in $page.props.random_products" :key="product">
                         <div class="p-4 text-center mx-auto">
                             <div class="w-[158px] h-[150px] overflow-hidden">
-                                <img src="https://via.placeholder.com/158x150" alt="">
+                                <img :src="product.image">
                             </div>
-                            <Link >
+                            <Link href="#">
                                 <div class="w-[160px] text-[12px] py-2 text-teal-600 font-extrabold hover:text-red-600 cursor-pointer">
-                                    This is a test title
+                                    {{ product.title.substring(0, 40) }}...
                                 </div>
                             </Link>
                             <div class="flex justify-start">
-                                <div class="text-xs font-extrabold text-red-600 w-full text-left">$ 100</div>
+                                <div class="text-xs font-extrabold text-red-600 w-full text-left">${{ product.price }}</div>
                                 <img width="50" src="/images/logo/PRIME_LOGO.PNG" alt="">
                             </div>
                         </div>
@@ -296,10 +296,10 @@ const accountAndListFunc = (bool) => {
                 Shop By Department
             </div>
 
-            <div>
+            <div v-for="cat in $page.props.categories" :key="cat">
                 <div class="hover:bg-gray-200 pl-6 pr-3">
-                    <Link  class="py-2.5 text-[13px] text-black flex justify-between items-center hover:bg-gray-200 cursor-pointer">
-                        Computers <ChevronRightIcon :size="20" fillColor="#808080" />
+                    <Link href="#" class="py-2.5 text-[13px] text-black flex justify-between items-center hover:bg-gray-200 cursor-pointer">
+                        {{ cat.name }} <ChevronRightIcon :size="20" fillColor="#808080" />
                     </Link>
                 </div>
             </div>
