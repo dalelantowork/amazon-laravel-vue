@@ -7,9 +7,10 @@
         <div class="w-[500px] mx-auto text-2xl font-extrabold">
             <div>Add a new address</div>
 
-            <form>
+            <form @submit.prevent="submit">
                 <div class="text-[15px] -mb-1.5 font-extrabold">Country</div>
                 <select
+                    v-model="form.country"
                     class="
                         w-full
                         border-gray-300
@@ -34,6 +35,7 @@
                     <InputLabel class="-mb-1.5" value="First name" />
 
                     <TextInput
+                        v-model="form.first_name"
                         type="text"
                         class="mt-1 block w-full"
                         required
@@ -44,6 +46,7 @@
                     <InputLabel class="-mb-1.5" value="Last name" />
 
                     <TextInput
+                        v-model="form.last_name"
                         type="text"
                         class="mt-1 block w-full"
                         required
@@ -55,6 +58,7 @@
 
                     <TextInput
                         type="text"
+                        v-model="form.addr1"
                         class="mt-1 block w-full"
                         required
                         placeholder="Address line 1"
@@ -62,6 +66,7 @@
 
                     <TextInput
                         type="text"
+                        v-model="form.addr2"
                         class="mt-1 block w-full"
                         required
                         placeholder="Address line 2"
@@ -75,6 +80,7 @@
 
                             <TextInput
                                 type="text"
+                                v-model="form.city"
                                 class="mt-1 block w-full"
                                 required
                                 placeholder="City"
@@ -86,6 +92,7 @@
 
                             <TextInput
                                 type="text"
+                                v-model="form.postcode"
                                 class="mt-1 block w-full"
                                 required
                                 placeholder="Postcode"
@@ -102,6 +109,7 @@
             </form>
         </div>
     </AuthenticatedLayout>
+    {{ $page.props.auth.user }}
 </template>
 
 <script setup>
@@ -112,5 +120,22 @@ import MapMarkerOutlineIcon from 'vue-material-design-icons/MapMarkerOutline.vue
 import PlusIcon from 'vue-material-design-icons/Plus.vue'
 import InputLabel from '@/Components/InputLabel.vue';
 import TextInput from '@/Components/TextInput.vue';
+
+const page = usePage()
+const form = useForm({
+    country: 'Philippines',
+    first_name: page.props.auth.user.first_name,
+    last_name: page.props.auth.user.last_name,
+    addr1: '',
+    addr2: '',
+    city: '',
+    postcode: '',
+})
+
+const submit = () => {
+    form.post(route('address_options.store'), {
+        onFinish: () => route('address.index'),
+    })
+}
 
 </script>
