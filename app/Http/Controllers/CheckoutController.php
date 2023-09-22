@@ -86,6 +86,6 @@ class CheckoutController extends Controller
 
         //Mail::to($request->user())->send(new OrderShipped($order));
 
-        return redirect()->route('dashboard');
+        return redirect()->route('checkout_success.index');
     }
 }
