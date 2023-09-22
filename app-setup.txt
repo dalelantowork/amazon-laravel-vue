@@ -1,0 +1,48 @@
+Amazon
+
+App setup
+git clone git@github.com:dalelantowork/amazon-laravel-vue.git
+
+composer install 
+
+cp .env.example .env 
+
+php artisan cache:clear 
+
+composer dump-autoload 
+
+php artisan key:generate
+
+composer require laravel/breeze --dev
+
+php artisan breeze:install vue
+
+Use @php8.1
+
+valet link
+
+npm i
+
+npm run dev
+
+npm i vue-material-design-icons
+
+npm i vue3-carousel
+
+npm i pinia
+
+npm i pinia-plugin-persistedstate
+
+composer require stripe/stripe-php
+
+Create DB
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=amazon_clone
+DB_USERNAME=root
+DB_PASSWORD=
+
+Migration
+php artisan migrate
+php artisan db:seed
