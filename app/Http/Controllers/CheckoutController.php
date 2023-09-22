@@ -84,7 +84,7 @@ class CheckoutController extends Controller
         $order->payment_intent = $request['payment_intent'];
         $order->save();
 
-        //Mail::to($request->user())->send(new OrderShipped($order));
+        Mail::to($request->user())->send(new OrderShipped($order));
 
         return redirect()->route('checkout_success.index');
     }
