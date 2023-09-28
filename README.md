@@ -21,6 +21,46 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## Screenshots
+
+### Home
+![Home](https://github.com/dalelantowork/amazon-laravel-vue/blob/master/public/images/amazon/main.png?raw=true)
+
+### Register
+![Register](https://github.com/dalelantowork/amazon-laravel-vue/blob/master/public/images/amazon/register.png?raw=true)
+
+### Login
+![Login](https://github.com/dalelantowork/amazon-laravel-vue/blob/master/public/images/amazon/login.png?raw=true)
+
+### Authenticated
+![Authenticated](https://github.com/dalelantowork/amazon-laravel-vue/blob/master/public/images/amazon/authenticated.png?raw=true)
+
+### Categories
+![Categories](https://github.com/dalelantowork/amazon-laravel-vue/blob/master/public/images/amazon/categories.png?raw=true)
+
+### Electronics
+![Electronics](https://github.com/dalelantowork/amazon-laravel-vue/blob/master/public/images/amazon/electronics.png?raw=true)
+
+### Product
+![Product](https://github.com/dalelantowork/amazon-laravel-vue/blob/master/public/images/amazon/product.png?raw=true)
+
+### Cart
+![Cart](https://github.com/dalelantowork/amazon-laravel-vue/blob/master/public/images/amazon/cart.png?raw=true)
+
+### Checkout
+![Checkout](https://github.com/dalelantowork/amazon-laravel-vue/blob/master/public/images/amazon/checkout.png?raw=true)
+
+### Checkout Success
+![Checkout Success](https://github.com/dalelantowork/amazon-laravel-vue/blob/master/public/images/amazon/checkout-success.png?raw=true)
+
+### Stripe
+![Stripe](https://github.com/dalelantowork/amazon-laravel-vue/blob/master/public/images/amazon/stripe.png?raw=true)
+
+### Profile
+![Profile](https://github.com/dalelantowork/amazon-laravel-vue/blob/master/public/images/amazon/profile.png?raw=true)
+
+
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
