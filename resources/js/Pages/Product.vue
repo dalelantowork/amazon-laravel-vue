@@ -50,7 +50,7 @@ const isAlreadyInCart = computed(() => {
                                 :href="route('address.index')"
                                 class="flex items-center text-xs font-extrabold text-teal-700 hover:text-red-600 cursor-pointer"
                             >
-                                <MapMarkerOutlineIcon :size="17" /> Delivery to {{ $page.props.auth.user.first_name }} - {{ $page.props.auth.address.postcode }}
+                                <!-- <MapMarkerOutlineIcon :size="17" /> Delivery to {{@$page.props.auth.user.first_name }} -->
                             </Link>
                             <Link
                                 v-else
